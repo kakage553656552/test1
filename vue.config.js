@@ -7,5 +7,7 @@ module.exports = defineConfig({
       //   data: `@import "@/styles/global.scss";` // 加载全局变量
       // }
     }
-  }
+  },
+  outputDir: 'dist',
+  indexPath: 'index.html'
 })
