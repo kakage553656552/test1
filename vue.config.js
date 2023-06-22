@@ -9,5 +9,26 @@ module.exports = defineConfig({
     }
   },
   outputDir: 'dist',
-  indexPath: 'index.html'
+  indexPath: 'index.html',
+  devServer: {
+    open: true,
+    port: 8081,
+    // host: 'localhost',
+    proxy: {
+      '/v1': {
+        target: 'https://api.openai.com',
+        ws: false,
+        changeOrigin: true,
+        secure: false,
+        pathRewrite: {
+          '^/v1': 'https://api.openai.com/v1'
+        },
+        headers: {
+          Connection: 'keep-alive'
+        }
+      },
+
+      
+    }
+  },
 })
